@@ -275,14 +275,278 @@ const WATCHES = {
     specs:[['Case','36 mm · gold-tone polished'],['Crystal','Sapphire · A.R.'],['Movement','Miyota 9T quartz'],['Battery','4 years'],['Water','50 metres'],['Strap','Polished bracelet · 18 mm']],
     colors:['#c9a961','#d6a098','#dddbd0','#1c1c1c','#a8a39a'],
     colorNames:['Champagne','Rose','Pearl','Obsidian','Silver'] },
-  humir: { no:'W·XIX', name:'Humir', ref:'04.HMR.IRN', type:'Quartz', price:79, finishes:5,
+  humir: { no:'W·XIX', name:'Humir', ref:'04.HMR.IRN', type:'Quartz', price:79, finishes:1,
     img:'https://luckyfours.com/cdn/shop/files/5_5063d5aa-86d4-4b0c-a56d-42b45d743504.webp?v=1762198825&width=1200',
     epi:'Soft strength.',
-    desc:"A 36mm brushed steel case with applied indices. Five finishes — the maison's most utilitarian women's piece.",
+    desc:"A 36mm brushed steel case with applied indices — the maison's most utilitarian women's piece.",
     specs:[['Case','36 mm · brushed steel'],['Crystal','Sapphire'],['Movement','Miyota 2025 quartz'],['Battery','3 years'],['Water','50 metres'],['Strap','Steel bracelet · 18 mm']],
-    colors:['#a8a39a','#1c1c1c','#c9a961','#1a3550','#dddbd0'],
-    colorNames:['Iron','Obsidian','Champagne','Ocean','Pearl'] },
+    colors:['#a8a39a'],
+    colorNames:['Iron'] },
 };
+
+/* ──────────────────────────────────────────────────────────────
+   REAL VARIANTS (scraped from luckyfours.com)
+   Format: { n: variant name, u: filename + ?v= query (relative to VARIANT_BASE) }
+   ────────────────────────────────────────────────────────────── */
+const VARIANT_BASE = 'https://cdn.shopify.com/s/files/1/0758/5333/2777/files/';
+
+const VARIANTS = {
+  // ── MEN'S ──
+  caspian: [
+    { n:'Emerald',  u:'1_e971742e-9f36-4b2a-a076-90523bb1fb60.webp?v=1760567187' },
+    { n:'Ocean',    u:'4_0fc33264-fbe3-47c9-9b51-93cfbc68b5f3.webp?v=1763224474' },
+    { n:'Iron',     u:'2_f8ea0ef2-f200-4835-9d42-08fae1786fd4.webp?v=1763224474' },
+    { n:'Ice',      u:'3_ab304bb1-4abc-47a7-8f13-470e5178d0ef.webp?v=1763224474' },
+    { n:'Obsidian', u:'1x1_fa1dac23-6cb8-4970-b46f-f6282cd8c6ba.webp?v=1776241792' },
+    { n:'Gold',     u:'1x1_9034fb4a-1922-4cba-a3d7-004c178b01e0.webp?v=1777476603' },
+  ],
+  santos: [
+    { n:'Crimson',         u:'Santos.webp?v=1755722483' },
+    { n:'Emerald',         u:'GREEN.webp?v=1755878297' },
+    { n:'Ocean',           u:'BLUE.webp?v=1755878297' },
+    { n:'Rosé',            u:'PINK.webp?v=1755878297' },
+    { n:'Amethyst',        u:'PURPLE.webp?v=1755878297' },
+    { n:'Tiffany Blue',    u:'TIFFANNY.webp?v=1755878297' },
+    { n:'Saffron',         u:'ORANGE.webp?v=1755878297' },
+    { n:'Pearl',           u:'WHITE.webp?v=1755878297' },
+    { n:'Iron',            u:'BLACK.webp?v=1755878297' },
+    { n:'Mocha Rootbeer',  u:'ROSE_GOLD.webp?v=1755878297' },
+    { n:'Gold Crimson',    u:'GOLD_RED.webp?v=1755878297' },
+    { n:'Gold Iron',       u:'GOLD_BLACK.webp?v=1755878297' },
+    { n:'Gold Pearl',      u:'GOLD_WHITE.webp?v=1755878297' },
+    { n:'Gold',            u:'GOLD_GOLD.webp?v=1755878297' },
+    { n:'Obsidian',        u:'1x1_3d71cfa7-08a6-4dbf-8cc0-3970fb6c7120.webp?v=1775321338' },
+  ],
+  tourbillon: [
+    { n:'Silver Ocean',       u:'9_5dbf82bf-d70a-4688-bc87-c768789981b4.webp?v=1762198745' },
+    { n:'Silver Ice',         u:'6_a2ffb774-a1ff-4d24-91da-4c215e1410b8.webp?v=1743566544' },
+    { n:'Silver Obsidian',    u:'5_98392f17-f81a-4d70-a82c-f4f71b4522f0.webp?v=1743566544' },
+    { n:'Silver Ocean Steel', u:'8_905028eb-cf5d-4c34-99e9-914eb8076054.webp?v=1743566544' },
+    { n:'Obsidian Steel',     u:'7_ad52740b-2d33-4147-a0f2-4dec17d7e70f.webp?v=1743566544' },
+    { n:'Rose Gold Ice',      u:'4_d943876f-3b1c-4164-8b7d-f8e668e8090d.webp?v=1743566544' },
+    { n:'Rose Gold Obsidian', u:'3_a1294cee-767f-4f50-baa5-afdcaf65c6dd.webp?v=1743566544' },
+    { n:'Ocean Obsidian',     u:'1_993172f2-d6a5-48bf-b553-a86496faf67d.webp?v=1743566544' },
+    { n:'Obsidian',           u:'2_a5cda0b1-d50a-4303-bf3c-f2f1648a5cac.webp?v=1743566544' },
+  ],
+  spine: [
+    { n:'Iron',      u:'2_13bef93d-6195-4886-8050-db54b99c0585.webp?v=1762198893' },
+    { n:'Platinum',  u:'3_b7cd430a-5ecd-4e12-8b9b-3119b5c81c26.webp?v=1' },
+    { n:'Obsidian',  u:'5_ece82541-97d9-4916-8e49-575d1d077361.webp?v=1' },
+    { n:'Gold Iron', u:'1_911932fe-6dc3-4f42-9273-070571969636.webp?v=1' },
+  ],
+  brone: [
+    { n:'Obsidian',     u:'7_d547bd28-ca75-4352-89f3-6981105a3628.webp?v=1763225151' },
+    { n:'Champagne',    u:'11_5.webp?v=1763225151' },
+    { n:'Ocean',        u:'8_a8c5b5cd-d542-4f9f-ac9d-22fb61710e39.webp?v=1763225151' },
+    { n:'Platinum',     u:'2_a908caff-1cc1-497a-a6e1-708f03836092.webp?v=1763225151' },
+    { n:'Iron',         u:'9_ba593ca5-27e8-46ca-91c0-1f984c799517.webp?v=1763225151' },
+    { n:'Gold',         u:'4_bc96794b-e387-4c41-a616-79cf257f2a0f.webp?v=1763225151' },
+    { n:'Emerald Gold', u:'5_023f22be-2a94-4a1d-b69d-717f13d5a861.webp?v=1763225151' },
+    { n:'Ocean Gold',   u:'6_83091788-76e7-4c5f-b527-c8f81084c9f3.webp?v=1763225151' },
+    { n:'Iron Gold',    u:'1_d6f1a29c-eb68-4132-8869-4d3ad5296d9d.webp?v=1763225151' },
+    { n:'Platinum Gold',u:'3_bb782718-79bb-4d43-a822-3e0945df3f2f.webp?v=1763225151' },
+  ],
+  oceanus: [
+    { n:'Ocean',           u:'11_8efc79f5-04de-468f-b9ab-768eedb2060c.webp?v=1760564925' },
+    { n:'Ice',             u:'2_061f4c00-c7d5-475e-acc8-551f6f287cbb.webp?v=1760564925' },
+    { n:'Iron',            u:'1_07bf03cd-cbeb-4274-849c-8c2f5e0b8a57.webp?v=1760564925' },
+    { n:'Ocean Rose Gold', u:'3_46a0e865-b46f-4fa4-9709-1f9124c3d2da.webp?v=1760564925' },
+    { n:'Ice Rose Gold',   u:'4_deff88e4-9e20-4660-b560-6825a5a17253.webp?v=1760564925' },
+    { n:'Iron Rose Gold',  u:'5_9b83922c-6eba-43a7-8fbe-b8036cb1a298.webp?v=1760564925' },
+    { n:'Obsidian',        u:'6_e4b70ff4-fdeb-4118-9ce9-ca791f7d4112.webp?v=1760564925' },
+  ],
+  fortuno: [
+    { n:'Emerald', u:'18_970a7064-18dd-420e-b0c8-1b70b96b45e5.webp?v=1777474807' },
+    { n:'Ocean',   u:'19_db3d1221-b43e-4bf4-856e-fd97f0a96ac8.webp?v=1777474809' },
+    { n:'Ice',     u:'20_69b3c26b-10ac-4671-a66b-286642dc243c.webp?v=1777474808' },
+    { n:'Iron',    u:'21_19510156-36d1-410f-ad35-58fa61324923.webp?v=1777474808' },
+    { n:'Gold',    u:'22_ac7dfa13-7385-4973-9dad-a84dc32808f6.webp?v=1777474809' },
+  ],
+  baretta: [
+    { n:'Emerald',       u:'1x1_6f20463e-b6fb-4ff3-a6a4-81b318445deb.webp?v=1777217336' },
+    { n:'Ocean',         u:'10_ee3e8702-e15f-4543-898a-e0876a517550.webp?v=1777227348' },
+    { n:'Noir',          u:'2_54527f4c-c17d-430b-b846-56a6c22685c4.webp?v=1777227349' },
+    { n:'Emerald Noir',  u:'16_5b03ee69-f97c-4ea3-ad4e-ba8388f95fb9.webp?v=1777227349' },
+    { n:'Ocean Noir',    u:'8_f658a167-6c62-4799-8a98-b33b9fdc48d4.webp?v=1777227349' },
+    { n:'Sterling',      u:'14_414f4744-4806-44bd-ab02-4568eeab0d05.webp?v=1777227348' },
+    { n:'Obsidian',      u:'4_0d9d0928-d3a6-4100-9185-a51796a57046.webp?v=1777227348' },
+  ],
+  ronin: [
+    { n:'Obsidian',           u:'6_9bf62c3e-a05a-493a-9ce9-ee9509bdee82.webp?v=1771444819' },
+    { n:'Ocean',              u:'3_1d7054f8-3854-4590-a177-1ea25579b2ba.webp?v=1773853453' },
+    { n:'Silver Ocean',       u:'13_f269693d-b67f-4077-8e84-8a7b893ed76b.webp?v=1773853453' },
+    { n:'Silver Obsidian',    u:'9_bafa025c-4eb6-4711-9e7d-8c532130a881.webp?v=1773853453' },
+    { n:'Rose Gold Ocean',    u:'7_913ceb08-4697-4a54-9d34-93ca4ea2cf24.webp?v=1773853453' },
+    { n:'Rose Gold Obsidian', u:'8_e737507f-f740-42d0-bfdf-25678db0cd88.webp?v=1773853453' },
+  ],
+  chronometer: [
+    { n:'Silver Ice',      u:'11_cefec56b-0eb3-41c5-a6e8-ba72bd1e348e.webp?v=1771448705' },
+    { n:'Silver Obsidian', u:'8_7b3bc75a-0be6-415d-b975-38081a16816e.webp?v=1773854253' },
+    { n:'Silver Ocean',    u:'13_7f223813-cf40-4f6d-8d50-b509248b9a5c.webp?v=1773854253' },
+    { n:'Gold Obsidian',   u:'14_ef1b3277-b90e-429e-9b85-12e9f4c8afbf.webp?v=1773854253' },
+    { n:'Gold Ocean',      u:'9_4cf3725a-4e6a-46d6-8cc2-db1bdc08ea1c.webp?v=1773854253' },
+    { n:'Gold Emerald',    u:'10_0fae7949-99db-4dcc-aefb-66b95ef923a7.webp?v=1773854253' },
+    { n:'Gold Ice',        u:'12_902073fa-1478-4219-90d7-77b2a83eccae.webp?v=1773854253' },
+  ],
+  atlas: [
+    { n:'Rose Gold Ice',      u:'5_4f8e3947-912d-4d56-bfc6-f1de743db1fe.webp?v=1773851541' },
+    { n:'Rose Gold Obsidian', u:'3_bf463679-99cf-4aa7-91c4-e089ca10b117.webp?v=1773851541' },
+    { n:'Rose Gold Emerald',  u:'4_2c90ab3a-6f64-4b37-b934-1c400655eb80.webp?v=1773851541' },
+    { n:'Rose Gold Ocean',    u:'6_b49b526d-2ae3-4dc5-ba2a-048d2b660ea4.webp?v=1773851541' },
+    { n:'Silver Ice',         u:'2_841c62c9-61fb-4135-8d78-902f1adb1c91.webp?v=1773685838' },
+    { n:'Silver Obsidian',    u:'1_75dcdd7e-d936-49d9-818b-4be4ff28bd97.webp?v=1773851541' },
+    { n:'Silver Emerald',     u:'1x1_c2da89df-2cfb-4238-9d4f-5f734c602ea2.webp?v=1773851541' },
+    { n:'Silver Ocean',       u:'10_849967b4-2737-4a26-b854-880312e2c27d.webp?v=1773851541' },
+  ],
+  prague: [
+    { n:'Gold Obsidian',       u:'7_e0328f1f-ff13-4835-9082-a41f8d0a35d2.webp?v=1762198743' },
+    { n:'Gold Ocean',          u:'3_9b68881a-4e96-40ea-8bb1-494eb8e671f9.webp?v=1743566352' },
+    { n:'Gold Ocean Steel',    u:'6_da33f22e-09e2-4a6e-be47-a84e49c258b9.webp?v=1743566352' },
+    { n:'Gold Emerald',        u:'5_324d1a85-ff4f-458f-81f0-9db11eea4a5a.webp?v=1743566352' },
+    { n:'Silver Obsidian',     u:'1_66526f59-9e43-4851-a89e-0aa383cbf202.webp?v=1743566352' },
+    { n:'Silver Ocean',        u:'2_f2c70853-50a1-4da4-ac37-fa2e65331790.webp?v=1743566352' },
+    { n:'Silver Obsidian Steel', u:'4_47e20109-92e4-40df-9921-0f9ed8ddfa83.webp?v=1743566352' },
+  ],
+  voyager: [
+    { n:'Default', u:'Untitled_design_299472f8-42b4-45cb-85bb-30a677c49b9a.webp?v=1762198749' },
+  ],
+  aurelios: [
+    { n:'Ice',                u:'10_ab8d2040-d2a8-4cd9-9e96-cd86fc5629c2.webp?v=1762198711' },
+    { n:'Ocean',              u:'8_bccc8473-df32-4406-9c49-94b221c2457c.webp?v=1745091500' },
+    { n:'Iron',               u:'9_574d9ef7-3878-4f3e-83d2-72a2baf248d2.webp?v=1745091500' },
+    { n:'Root Beer',          u:'7_b1bcf8c8-3fc3-4bd7-bfe7-5e19d5cc0154.webp?v=1745091500' },
+    { n:'Obsidian – Ice',     u:'5_1dae6110-e452-41f2-a493-1d6f83a9fdb5.webp?v=1745091500' },
+    { n:'Obsidian – Ocean',   u:'6_fa9e926d-0c7a-4c6a-8f7f-09ffec01600e.webp?v=1745091500' },
+    { n:'Obsidian – Iron',    u:'3_fd95a10a-2c3e-4bf6-9277-5351c65e1746.webp?v=1745091500' },
+    { n:'Rose Gold – Ice',    u:'1_874558f6-fdb4-420c-af3e-e505dbced1f8.webp?v=1745091500' },
+    { n:'Rose Gold – Iron',   u:'4_84003613-11e3-40de-8266-16a188f8b80b.webp?v=1745091500' },
+    { n:'Rose Gold – Rootbeer', u:'2_064a8e52-043a-446c-8559-2a512154c9c7.webp?v=1745091500' },
+  ],
+  wraith: [
+    { n:'Obsidian', u:'Main.webp?v=1760562155' },
+    { n:'Ocean',    u:'11_1_d472193d-99bf-454a-8aa8-79905679ca81.webp?v=1763224053' },
+    { n:'Ice',      u:'1_feb23a7e-19bf-4005-b2fd-b448578223f9.webp?v=1763224053' },
+    { n:'Emerald',  u:'2_bea3fb13-93b4-4cdc-8fc5-1dcf1e018981.webp?v=1763224053' },
+  ],
+  summit: [
+    { n:'Midnight Rose', u:'4_b158b50a-b459-4afb-9d33-361bb4a9b844.webp?v=1762198324' },
+    { n:'Black Chrome',  u:'1_c85c939a-4266-4c0e-b353-bd0c18fa981a.webp?v=1743729767' },
+    { n:'Fire Red',      u:'3_c1b99a38-3ef8-425a-85d2-70a6e63ded38.webp?v=1743729767' },
+    { n:'Coral Glow',    u:'2_a80ed094-09fb-42a2-bb2d-4038de1a4b8a.webp?v=1743729767' },
+  ],
+  jaxon: [
+    { n:'Frostbite',   u:'24_96edf2f9-eae5-4339-b675-4392a97177c4.webp?v=1777475680' },
+    { n:'Chrome Noir', u:'25_3fa9deb6-c351-49f3-9bf5-32d043ed81d7.webp?v=1' },
+    { n:'Nebula',      u:'26_e9a24b8b-b898-4979-90e3-ac4a5744fcf0.webp?v=1' },
+    { n:'Regalia',     u:'28_d8591951-4243-4c13-92d7-bb8338bf0053.webp?v=1' },
+    { n:'Gold',        u:'27_ead0abbe-4d91-4623-9238-33d12f84d7b6.webp?v=1' },
+  ],
+  nassau: [
+    { n:'Silver Ice',      u:'4_13b42498-c1bd-471f-a75d-39c05d304334.webp?v=1762198755' },
+    { n:'Silver Obsidian', u:'1_64e71be7-5550-45fa-abc8-a5e1d87f2939.webp?v=1739251588' },
+    { n:'Gold Ice',        u:'2_18095d26-dbbf-430c-900b-f25a4aeb8d96.webp?v=1739251588' },
+    { n:'Gold Obsidian',   u:'3_016e12d4-0e48-4248-9e6f-51d5e9a0e086.webp?v=1739251588' },
+  ],
+  princeoak: [
+    { n:'Forged Obsidian', u:'5_a60b097c-8f74-4f99-b5d3-57e723e00c19.webp?v=1762198509' },
+    { n:'Rose Obsidian',   u:'3_f94a9b13-0a63-4956-a081-c6d30e160432.webp?v=1744328033' },
+    { n:'Obsidian',        u:'4_9c79b7ae-d2de-4226-9960-fc830ddb2075.webp?v=1744328033' },
+    { n:'Rose Ice',        u:'1_bd010145-cbd6-4ebb-97e3-681af93c6feb.webp?v=1744328033' },
+    { n:'Nautilus',        u:'2_6032b1ac-c740-4855-865a-5662c2079079.webp?v=1744328033' },
+  ],
+  aura: [
+    { n:'Monarch',  u:'2_1553554d-343c-417a-aa46-f1391cbe5a29.webp?v=1762198875' },
+    { n:'Midnight', u:'1_dc9d6b2c-9cb2-4ff5-83cb-3748bd9b0391.webp?v=1' },
+  ],
+
+  // ── WOMEN'S ──
+  calista: [
+    { n:'Gold',          u:'4_028469d1-371b-4f20-b62f-11adbccf0b61.webp?v=1762198322' },
+    { n:'Silver',        u:'2_f38ba7a6-543c-4002-ad74-2672fc467c24.webp?v=1739258445' },
+    { n:'Gold Diamond',  u:'3_f1116b49-8a5d-425e-88e6-4b90d0a76284.webp?v=1739258445' },
+    { n:'Silver Diamond',u:'1_d07ac0e0-61c2-48a7-8044-72085844196e.webp?v=1739258445' },
+  ],
+  lyra: [
+    { n:'Rose',     u:'6_0f45fe3e-7fbc-46fc-9bae-3ae4a4dd026e.webp?v=1762198752' },
+    { n:'Ice',      u:'5_a737683f-804e-4b35-9234-fbef73c2940e.webp?v=1739251970' },
+    { n:'Emerald',  u:'4_a2fa1928-84d3-4ddc-942f-d423fc9c8976.webp?v=1739251970' },
+    { n:'Obsidian', u:'3_2598277f-5eff-4959-a199-507e31da1b41.webp?v=1739251970' },
+    { n:'Ocean',    u:'1_405ec954-c028-4a07-99f3-6f3848ec8283.webp?v=1739251970' },
+    { n:'Aqua',     u:'2_e9843a21-58d7-42c6-b32b-ec510d89fce5.webp?v=1739251970' },
+  ],
+  venoria: [
+    { n:'Sterling Gold', u:'5_7087b413-13c7-4e2f-85e2-8568413afb92.webp?v=1762198565' },
+    { n:'Sterling Rose', u:'3_7b50f4e3-ccd1-46c5-b7d3-c7b74d0b5c20.webp?v=1739257547' },
+    { n:'Gold',          u:'4_e1ca0260-b5c4-473e-8709-688d3f013fb1.webp?v=1739257547' },
+    { n:'White Silver',  u:'1_1ed38de6-1e11-4a19-8d97-5b9c0de0c2a4.webp?v=1739257547' },
+    { n:'Black Silver',  u:'2_64c28a5e-85dc-413f-935a-9b65cd4fc710.webp?v=1739257547' },
+  ],
+  thea: [
+    { n:'Rose Gold Ice',   u:'6_06aaa7fe-b367-4043-872a-509351ac1692.webp?v=1762198753' },
+    { n:'Silver Ice',      u:'3_c5d62386-1273-41a7-8e51-c109fecca2dc.webp?v=1739251670' },
+    { n:'Silver Obsidian', u:'2_889c215c-eba8-40a4-8520-d6a296bdd595.webp?v=1739251670' },
+    { n:'Silver Ocean',    u:'1_966c3354-8478-4a2e-a977-25c9358ea6ef.webp?v=1739251670' },
+    { n:'Gold Obsidian',   u:'4_3b49ab46-3eb8-4226-873a-db95ba35d4ad.webp?v=1739251670' },
+    { n:'Gold Ocean',      u:'5.webp?v=1739251670' },
+  ],
+  surmen: [
+    { n:'Gold',   u:'5_9de0cb67-3a43-4c63-884a-0836d900ff4e.webp?v=1762198821' },
+    { n:'Silver', u:'5_725c13fa-c88f-4b9a-8b0e-7f3ac1f53810.webp?v=1741178516' },
+  ],
+  maso: [
+    { n:'Gold',   u:'5_8407687b-4096-44eb-a1ad-2dd1a815422e.webp?v=1762198824' },
+    { n:'Silver', u:'5_e0cad628-223a-4bc6-93d2-e9414e7b5a00.webp?v=1741174685' },
+  ],
+  leto: [
+    { n:'Rose Gold Ice', u:'2_086dfe63-b411-4e83-b4e7-e1c92a93a710.webp?v=1739251748' },
+    { n:'Rose Gold',     u:'1_11833a79-a341-4d7c-bc8c-f483e5aa5f12.webp?v=1762198753' },
+  ],
+  francesca: [
+    { n:'Gold',   u:'5_872aeb5f-f847-4107-8be9-cd9075d943e1.webp?v=1762198818' },
+    { n:'Silver', u:'5_1617fd19-016e-4f72-bbf1-3adac867ffb5.webp?v=1741174125' },
+  ],
+  lora: [
+    { n:'Gold',   u:'5_04393797-5280-4752-84f4-e9f908c8f008.webp?v=1762198818' },
+    { n:'Silver', u:'5_59228e8d-5401-4ba8-8402-998115b1900e.webp?v=1741173523' },
+  ],
+  runa: [
+    { n:'Gold',   u:'5_73aa30f1-a9ce-4fd7-b1e9-06b5a625f432.webp?v=1762198817' },
+    { n:'Silver', u:'5_d513a5a2-5134-4ee2-8fa7-de3843d285b1.webp?v=1741173805' },
+  ],
+  tyla: [
+    { n:'Gold',   u:'5_c6ea52f5-d850-407f-94b9-eee587b4402c.webp?v=1762198826' },
+    { n:'Silver', u:'5_1a48a4fd-09df-4768-85a4-ecdc701665f4.webp?v=1741175864' },
+  ],
+  kera: [
+    { n:'Gold',   u:'5_5fc036f3-3d5b-49de-acbf-2b98a1f9df81.webp?v=1762198822' },
+    { n:'Silver', u:'5_3361b22c-2651-45bc-83da-9910328ac757.webp?v=1741174962' },
+  ],
+  gracie: [
+    { n:'Default', u:'5_83909173-b65d-4565-a007-86fd7c93eccc.webp?v=1762198822' },
+  ],
+  nyx: [
+    { n:'Gold',   u:'5_a542ad28-c3f7-4943-852f-cc89e2c78993.webp?v=1762198819' },
+    { n:'Silver', u:'5_ac691508-1ae9-451e-9c16-207b634cee75.webp?v=1741174336' },
+  ],
+  mila: [
+    { n:'Default', u:'5_6df6f3e6-2fe4-4a56-9d6c-9391535bbf81.webp?v=1762198819' },
+  ],
+  phila: [
+    { n:'Gold',   u:'5_d03f134c-8664-47b3-9120-38a19c79e65e.webp?v=1762198825' },
+    { n:'Silver', u:'5_e4ded02b-9c33-410c-a5d7-c866e998014f.webp?v=1741175521' },
+  ],
+  milo: [
+    { n:'Default', u:'5_35cb47b1-da13-43bc-8ec7-e9f800c4ef5b.webp?v=1762198824' },
+  ],
+  loressa: [
+    { n:'Default', u:'5_83ab6e10-3bc4-4d78-a660-da68f8eb7b6e.webp?v=1762198821' },
+  ],
+  humir: [
+    { n:'Default', u:'5_5063d5aa-86d4-4b0c-a56d-42b45d743504.webp?v=1762198825' },
+  ],
+};
+
+const varImg = (v, w) => `${VARIANT_BASE}${v.u}&width=${w}`;
 
 const WOMEN_SLUGS = ['caspian','brone','fortuno','ronin','atlas','prague','aurelios'];
 
@@ -387,11 +651,13 @@ const WOMEN_SLUGS = ['caspian','brone','fortuno','ronin','atlas','prague','aurel
     let html = '';
     cart.forEach((v, slug) => {
       const w = WATCHES[slug];
-      const finishName = w.colorNames?.[v.finish] || '';
+      const variant = VARIANTS[slug]?.[v.finish];
+      const finishName = variant && variant.n !== 'Default' ? variant.n : '';
+      const itemImg = variant?.u ? varImg(variant, 200) : w.img;
       html += `
         <article class="ci">
           <a href="#" class="ci__img" data-watch="${slug}">
-            <img src="${w.img}" alt="${w.name}" loading="lazy" />
+            <img src="${itemImg}" alt="${w.name}" loading="lazy" />
           </a>
           <div class="ci__body">
             <div class="ci__top">
@@ -634,10 +900,12 @@ const WOMEN_SLUGS = ['caspian','brone','fortuno','ronin','atlas','prague','aurel
     let html = '';
     cart.forEach((v, slug) => {
       const w = WATCHES[slug];
-      const finishName = w.colorNames?.[v.finish] || '';
+      const variant = VARIANTS[slug]?.[v.finish];
+      const finishName = variant && variant.n !== 'Default' ? variant.n : '';
+      const itemImg = variant?.u ? varImg(variant, 200) : w.img;
       html += `
         <div class="cs-item">
-          <div class="cs-item__img"><img src="${w.img}" alt="" /><span class="cs-item__qty">${v.qty}</span></div>
+          <div class="cs-item__img"><img src="${itemImg}" alt="" /><span class="cs-item__qty">${v.qty}</span></div>
           <div class="cs-item__info">
             <strong>${w.name}</strong>
             <span class="cs-item__meta">${finishName ? finishName + ' · ' : ''}${w.ref}</span>
@@ -746,32 +1014,48 @@ const WOMEN_SLUGS = ['caspian','brone','fortuno','ronin','atlas','prague','aurel
     els.epi.textContent = `“${w.epi}”`;
     els.desc.textContent = w.desc;
     els.price.textContent = `$${w.price}`;
+    const variants = VARIANTS[slug] || [{ n: 'Default', u: '' }];
+
     els.img.classList.add('is-loading');
-    els.img.src = w.img;
-    els.img.alt = `${w.name} by Lucky Fours`;
+    const firstVar = variants[0];
+    els.img.src = firstVar.u ? varImg(firstVar, 1400) : w.img;
+    els.img.alt = `${w.name} — ${firstVar.n}`;
     els.img.onload = () => els.img.classList.remove('is-loading');
-    const plural = w.finishes === 1 ? '' : 's';
-    els.finishesLbl.textContent = `Choose finish · ${w.finishes} colourway${plural}`;
+
+    const plural = variants.length === 1 ? '' : 's';
+    const isSingleDefault = variants.length === 1 && variants[0].n === 'Default';
+    els.finishesLbl.textContent = isSingleDefault
+      ? 'A single, considered finish.'
+      : `Choose finish · ${variants.length} colourway${plural}`;
+
     els.swatches.innerHTML = '';
-    w.colors.forEach((c, i) => {
+    variants.forEach((v, i) => {
+      if (isSingleDefault) return;
       const sw = document.createElement('button');
-      sw.type = 'button'; sw.className = 'm-sw';
-      sw.style.setProperty('--c', c);
-      sw.setAttribute('aria-label', w.colorNames?.[i] || `Colourway ${i + 1}`);
-      sw.title = w.colorNames?.[i] || `Colourway ${i + 1}`;
+      sw.type = 'button';
+      sw.className = 'v-sw';
+      sw.setAttribute('aria-label', v.n);
       if (i === 0) sw.classList.add('is-on');
+      const im = document.createElement('img');
+      im.src = varImg(v, 120);
+      im.alt = v.n;
+      im.loading = 'lazy';
+      sw.appendChild(im);
+      const lbl = document.createElement('span');
+      lbl.className = 'v-sw__lbl';
+      lbl.textContent = v.n;
+      sw.appendChild(lbl);
       sw.addEventListener('click', () => {
-        els.swatches.querySelectorAll('.m-sw').forEach(s => s.classList.remove('is-on'));
-        sw.classList.add('is-on'); currentFinishIdx = i;
+        els.swatches.querySelectorAll('.v-sw').forEach(s => s.classList.remove('is-on'));
+        sw.classList.add('is-on');
+        currentFinishIdx = i;
+        els.img.classList.add('is-loading');
+        els.img.src = varImg(v, 1400);
+        els.img.alt = `${w.name} — ${v.n}`;
+        els.img.onload = () => els.img.classList.remove('is-loading');
       });
       els.swatches.appendChild(sw);
     });
-    if (w.finishes > w.colors.length) {
-      const extra = document.createElement('span');
-      extra.className = 'm-sw-extra';
-      extra.textContent = `+${w.finishes - w.colors.length} more`;
-      els.swatches.appendChild(extra);
-    }
     els.specs.innerHTML = '';
     w.specs.forEach(([k, v]) => {
       const wrap = document.createElement('div');

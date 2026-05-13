@@ -1523,6 +1523,73 @@ ul { list-style: none; padding: 0; margin: 0; }
   color: var(--ink-3);
 }
 
+/* ── Variant swatches (image-based, with name tooltip) ── */
+.modal__swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  padding-top: 0.35rem;
+}
+.v-sw {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  background: var(--bg-soft);
+  overflow: visible;
+  cursor: pointer;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.v-sw > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+.v-sw:hover {
+  transform: scale(1.1);
+  z-index: 5;
+}
+.v-sw.is-on {
+  box-shadow: 0 0 0 2px var(--surface), 0 0 0 3.5px var(--ink);
+}
+.v-sw__lbl {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--ink);
+  color: var(--surface);
+  padding: 0.45rem 0.75rem;
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s var(--ease), transform .3s var(--ease);
+  z-index: 20;
+}
+.v-sw__lbl::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: var(--ink);
+}
+.v-sw:hover .v-sw__lbl {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 .modal__specs {
   margin: 0;
   display: grid;
