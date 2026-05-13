@@ -7,55 +7,38 @@
   <meta name="description" content="The official Maison Lucky Fours. Twenty-four references in steel, sapphire, and hand-fitted Japanese movement. Workshops in Tokyo, Lyon, and Hong Kong." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Tenor+Sans&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Tenor+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=5" />
 </head>
 <body>
 
-  <!-- ─────────── UTILITY BAR ─────────── -->
-  <div class="util">
-    <div class="util__inner">
-      <div class="util__left">
-        <a href="#">Care &amp; Services</a>
-        <a href="#">Book an Appointment</a>
-        <a href="#">Contact</a>
-      </div>
-      <div class="util__right">
-        <a href="#">United States</a>
-        <span class="util__sep">·</span>
-        <a href="#">English</a>
-        <span class="util__sep">·</span>
-        <a href="#">USD $</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─────────── MASTHEAD ─────────── -->
-  <header class="mast">
+  <!-- ─────────── MASTHEAD (single bar) ─────────── -->
+  <header class="mast" id="top">
     <nav class="mast__nav mast__nav--l" aria-label="Primary">
-      <a href="#collections">Watches</a>
-      <a href="#collections">Collections</a>
-      <a href="#maison">The Maison</a>
-      <a href="#" class="hide-md">Gifts</a>
+      <a href="#bestsellers" class="nav-link" data-scroll="bestsellers">Watches</a>
+      <a href="#bestsellers" class="nav-link" data-women>Women</a>
+      <a href="#collections" class="nav-link" data-scroll="collections">Collections</a>
     </nav>
 
-    <a href="#" class="mast__logo" aria-label="Lucky Fours, home">
-      <span class="mast__mark">L<span class="mast__roman">·</span>F</span>
-      <span class="mast__word">LUCKY&nbsp;FOURS</span>
-      <span class="mast__sub">MAISON · 2017</span>
+    <a href="#top" class="mast__logo" aria-label="Lucky Fours, home" data-scroll="top">
+      <span class="mast__word">Lucky Fours</span>
     </a>
 
-    <nav class="mast__nav mast__nav--r" aria-label="Tools">
-      <button aria-label="Search">
+    <nav class="mast__nav mast__nav--r" aria-label="Sections and tools">
+      <a href="#maison" class="nav-link hide-md" data-scroll="maison">The Maison</a>
+      <a href="#" class="nav-link hide-md" data-open-gifts>Gifts</a>
+      <span class="mast__div" aria-hidden="true"></span>
+      <button aria-label="Search the catalogue" class="icon-btn" data-open-search>
         <svg viewBox="0 0 22 22" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.1"><circle cx="10" cy="10" r="6.5"/><path d="m19 19-4-4"/></svg>
       </button>
-      <button aria-label="Wishlist" class="hide-sm">
+      <button aria-label="Wishlist" class="icon-btn hide-sm" data-open-wishlist>
         <svg viewBox="0 0 22 22" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M11 19s-7-4.5-7-10a4 4 0 0 1 7-2.7A4 4 0 0 1 18 9c0 5.5-7 10-7 10z"/></svg>
+        <span class="wish-count">0</span>
       </button>
-      <button aria-label="Account" class="hide-sm">
+      <button aria-label="Account" class="icon-btn hide-sm" data-open-account>
         <svg viewBox="0 0 22 22" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.1"><circle cx="11" cy="8" r="3.5"/><path d="M4 19c0-3.5 3.5-6 7-6s7 2.5 7 6"/></svg>
       </button>
-      <button aria-label="Shopping bag" class="bag-btn">
+      <button aria-label="Shopping bag" class="icon-btn bag-btn" id="bag-btn" data-open-cart>
         <svg viewBox="0 0 22 22" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M5 7h12l-1 12H6L5 7z"/><path d="M8 7V5a3 3 0 1 1 6 0v2"/></svg>
         <span class="bag-count">0</span>
       </button>
@@ -127,7 +110,7 @@
     </section>
 
     <!-- ─────────── CHAPTER I — CASPIAN ─────────── -->
-    <article class="chapter chapter--right">
+    <article class="chapter chapter--right" data-watch="caspian">
       <figure class="chapter__fig">
         <div class="chapter__img-wrap">
           <img
@@ -164,7 +147,7 @@
     </article>
 
     <!-- ─────────── CHAPTER II — SANTOS ─────────── -->
-    <article class="chapter chapter--left">
+    <article class="chapter chapter--left" data-watch="santos">
       <figure class="chapter__fig">
         <div class="chapter__img-wrap">
           <img
@@ -201,7 +184,7 @@
     </article>
 
     <!-- ─────────── CHAPTER III — TOURBILLON ─────────── -->
-    <article class="chapter chapter--right">
+    <article class="chapter chapter--right" data-watch="tourbillon">
       <figure class="chapter__fig">
         <div class="chapter__img-wrap">
           <img
@@ -238,7 +221,7 @@
     </article>
 
     <!-- ─────────── CHAPTER IV — SPINE ─────────── -->
-    <article class="chapter chapter--left chapter--vip">
+    <article class="chapter chapter--left chapter--vip" data-watch="spine">
       <figure class="chapter__fig">
         <div class="chapter__img-wrap">
           <img
@@ -277,80 +260,204 @@
     </article>
 
     <!-- ─────────── ALL REFERENCES ─────────── -->
-    <section class="all">
+    <section class="all" id="bestsellers">
       <header class="all__head">
-        <span class="overline">All References</span>
+        <span class="overline" id="all-overline">All References</span>
         <h2 class="display-1">
-          <em>Twenty-four</em> ways<br />to keep time.
+          <span class="all-title"><em>Twenty</em> references<br />for the keepers of time.</span>
+          <span class="women-title"><em>Nineteen</em> for her,<br />carefully chosen.</span>
         </h2>
+        <span class="filter-pill" id="filter-pill">
+          <span class="filter-pill__dot" aria-hidden="true"></span>
+          <span>Women's Collection · 19 References</span>
+          <button class="filter-pill__clear" data-clear-women aria-label="Clear filter">×</button>
+        </span>
       </header>
 
       <div class="all__grid">
-        <a class="ref" href="#">
+        <!-- ─── MEN'S (20) ─── -->
+        <a class="ref" href="#" data-watch="brone" data-gender="men">
           <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/7_d547bd28-ca75-4352-89f3-6981105a3628.webp?v=1763225151&width=700" alt="Brone" /></div>
           <div class="ref__row"><span>Brone</span><span class="ref__price">$79</span></div>
           <span class="ref__meta">Quartz · 10 finishes</span>
         </a>
-        <a class="ref" href="#">
+        <a class="ref" href="#" data-watch="oceanus" data-gender="men">
           <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/11_8efc79f5-04de-468f-b9ab-768eedb2060c.webp?v=1760564925&width=700" alt="Oceanus" /></div>
           <div class="ref__row"><span>Oceanus</span><span class="ref__price">$79</span></div>
           <span class="ref__meta">Dive · 200m · 7 finishes</span>
         </a>
-        <a class="ref" href="#">
+        <a class="ref" href="#" data-watch="fortuno" data-gender="men">
           <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/18_970a7064-18dd-420e-b0c8-1b70b96b45e5.webp?v=1777474807&width=700" alt="Fortuno" /></div>
           <div class="ref__row"><span>Fortuno</span><span class="ref__price">$79</span></div>
           <span class="ref__meta">Quartz · 6 finishes</span>
         </a>
-        <a class="ref" href="#">
+        <a class="ref" href="#" data-watch="baretta" data-gender="men">
           <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/1x1_6f20463e-b6fb-4ff3-a6a4-81b318445deb.webp?v=1777217336&width=700" alt="Baretta" /></div>
           <div class="ref__row"><span>Baretta</span><span class="ref__price">$129</span></div>
           <span class="ref__meta">Chronograph · 7 finishes</span>
         </a>
-        <a class="ref" href="#">
+        <a class="ref" href="#" data-watch="ronin" data-gender="men">
           <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/6_9bf62c3e-a05a-493a-9ce9-ee9509bdee82.webp?v=1771444819&width=700" alt="Ronin" /></div>
           <div class="ref__row"><span>Ronin</span><span class="ref__price">$79</span></div>
           <span class="ref__meta">Quartz · 6 finishes</span>
         </a>
-        <a class="ref" href="#">
+        <a class="ref" href="#" data-watch="chronometer" data-gender="men">
           <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/11_cefec56b-0eb3-41c5-a6e8-ba72bd1e348e.webp?v=1771448705&width=700" alt="Chronometer" /></div>
           <div class="ref__row"><span>Chronometer</span><span class="ref__price">$89</span></div>
           <span class="ref__meta">Chronograph · 8 finishes</span>
         </a>
-        <a class="ref" href="#">
+        <a class="ref" href="#" data-watch="atlas" data-gender="men">
           <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/5_4f8e3947-912d-4d56-bfc6-f1de743db1fe.webp?v=1773851541&width=700" alt="Atlas" /></div>
           <div class="ref__row"><span>Atlas</span><span class="ref__price">$79</span></div>
           <span class="ref__meta">Quartz · 9 finishes</span>
         </a>
-        <a class="ref" href="#">
+        <a class="ref" href="#" data-watch="prague" data-gender="men">
           <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/7_e0328f1f-ff13-4835-9082-a41f8d0a35d2.webp?v=1762198743&width=700" alt="Prague" /></div>
           <div class="ref__row"><span>Prague</span><span class="ref__price">$89</span></div>
           <span class="ref__meta">Quartz · 8 finishes</span>
         </a>
-        <a class="ref" href="#">
+        <a class="ref" href="#" data-watch="voyager" data-gender="men">
           <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/Untitled_design_299472f8-42b4-45cb-85bb-30a677c49b9a.webp?v=1762198749&width=700" alt="Voyager" /></div>
           <div class="ref__row"><span>Voyager</span><span class="ref__price">$79</span></div>
           <span class="ref__meta">Travel · GMT · 5 finishes</span>
         </a>
-        <a class="ref" href="#">
+        <a class="ref" href="#" data-watch="aurelios" data-gender="men">
           <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/10_ab8d2040-d2a8-4cd9-9e96-cd86fc5629c2.webp?v=1762198711&width=700" alt="Aurèlios" /></div>
           <div class="ref__row"><span>Aurèlios</span><span class="ref__price">$79</span></div>
           <span class="ref__meta">Quartz · 11 finishes</span>
         </a>
-        <a class="ref" href="#">
+        <a class="ref" href="#" data-watch="wraith" data-gender="men">
           <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/Main.webp?v=1760562155&width=700" alt="Wraith" /></div>
           <div class="ref__row"><span>Wraith</span><span class="ref__price">$79</span></div>
           <span class="ref__meta">Quartz · 4 finishes</span>
         </a>
-        <a class="ref" href="#">
+        <a class="ref" href="#" data-watch="summit" data-gender="men">
           <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/4_b158b50a-b459-4afb-9d33-361bb4a9b844.webp?v=1762198324&width=700" alt="Summit" /></div>
           <div class="ref__row"><span>Summit</span><span class="ref__price">$99</span></div>
           <span class="ref__meta">Chronograph · 4 finishes</span>
+        </a>
+        <a class="ref" href="#" data-watch="jaxon" data-gender="men">
+          <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/24_96edf2f9-eae5-4339-b675-4392a97177c4.webp?v=1777475680&width=700" alt="Jaxon" /></div>
+          <div class="ref__row"><span>Jaxon</span><span class="ref__price">$79</span></div>
+          <span class="ref__meta">Quartz · 5 finishes</span>
+        </a>
+        <a class="ref" href="#" data-watch="nassau" data-gender="men">
+          <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/4_13b42498-c1bd-471f-a75d-39c05d304334.webp?v=1762198755&width=700" alt="Nassau" /></div>
+          <div class="ref__row"><span>Nassau</span><span class="ref__price">$79</span></div>
+          <span class="ref__meta">Quartz · 4 finishes</span>
+        </a>
+        <a class="ref" href="#" data-watch="princeoak" data-gender="men">
+          <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/5_a60b097c-8f74-4f99-b5d3-57e723e00c19.webp?v=1762198509&width=700" alt="Prince Oak" /></div>
+          <div class="ref__row"><span>Prince Oak</span><span class="ref__price">$99</span></div>
+          <span class="ref__meta">Mechanical · 5 finishes</span>
+        </a>
+        <a class="ref" href="#" data-watch="aura" data-gender="men">
+          <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/2_1553554d-343c-417a-aa46-f1391cbe5a29.webp?v=1762198875&width=700" alt="Aura" /></div>
+          <div class="ref__row"><span>Aura</span><span class="ref__price">$79</span></div>
+          <span class="ref__meta">Quartz · 2 finishes</span>
+        </a>
+
+        <!-- ─── WOMEN'S (19) ─── -->
+        <a class="ref" href="#" data-watch="calista" data-gender="women">
+          <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/4_028469d1-371b-4f20-b62f-11adbccf0b61.webp?v=1762198322&width=700" alt="Calista" /></div>
+          <div class="ref__row"><span>Calista</span><span class="ref__price">$79</span></div>
+          <span class="ref__meta">Quartz · 5 finishes</span>
+        </a>
+        <a class="ref" href="#" data-watch="lyra" data-gender="women">
+          <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/6_0f45fe3e-7fbc-46fc-9bae-3ae4a4dd026e.webp?v=1762198752&width=700" alt="Lyra" /></div>
+          <div class="ref__row"><span>Lyra</span><span class="ref__price">$79</span></div>
+          <span class="ref__meta">Quartz · 6 finishes</span>
+        </a>
+        <a class="ref" href="#" data-watch="venoria" data-gender="women">
+          <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/5_7087b413-13c7-4e2f-85e2-8568413afb92.webp?v=1762198565&width=700" alt="Venoria" /></div>
+          <div class="ref__row"><span>Venoria</span><span class="ref__price">$89</span></div>
+          <span class="ref__meta">Quartz · 5 finishes</span>
+        </a>
+        <a class="ref" href="#" data-watch="thea" data-gender="women">
+          <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/6_06aaa7fe-b367-4043-872a-509351ac1692.webp?v=1762198753&width=700" alt="Thea" /></div>
+          <div class="ref__row"><span>Thea</span><span class="ref__price">$99</span></div>
+          <span class="ref__meta">Quartz · Pavé · 4 finishes</span>
+        </a>
+        <a class="ref" href="#" data-watch="surmen" data-gender="women">
+          <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/5_9de0cb67-3a43-4c63-884a-0836d900ff4e.webp?v=1762198821&width=700" alt="Surmen" /></div>
+          <div class="ref__row"><span>Surmen</span><span class="ref__price">$79</span></div>
+          <span class="ref__meta">Quartz · 4 finishes</span>
+        </a>
+        <a class="ref" href="#" data-watch="maso" data-gender="women">
+          <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/5_8407687b-4096-44eb-a1ad-2dd1a815422e.webp?v=1762198824&width=700" alt="Maso" /></div>
+          <div class="ref__row"><span>Maso</span><span class="ref__price">$79</span></div>
+          <span class="ref__meta">Quartz · 5 finishes</span>
+        </a>
+        <a class="ref" href="#" data-watch="leto" data-gender="women">
+          <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/1_11833a79-a341-4d7c-bc8c-f483e5aa5f12.webp?v=1762198753&width=700" alt="Leto" /></div>
+          <div class="ref__row"><span>Leto</span><span class="ref__price">$89</span></div>
+          <span class="ref__meta">Dress · 6 finishes</span>
+        </a>
+        <a class="ref" href="#" data-watch="francesca" data-gender="women">
+          <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/5_872aeb5f-f847-4107-8be9-cd9075d943e1.webp?v=1762198818&width=700" alt="Francesca" /></div>
+          <div class="ref__row"><span>Francesca</span><span class="ref__price">$79</span></div>
+          <span class="ref__meta">Quartz · 5 finishes</span>
+        </a>
+        <a class="ref" href="#" data-watch="lora" data-gender="women">
+          <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/5_04393797-5280-4752-84f4-e9f908c8f008.webp?v=1762198818&width=700" alt="Lora" /></div>
+          <div class="ref__row"><span>Lora</span><span class="ref__price">$79</span></div>
+          <span class="ref__meta">Quartz · 5 finishes</span>
+        </a>
+        <a class="ref" href="#" data-watch="runa" data-gender="women">
+          <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/5_73aa30f1-a9ce-4fd7-b1e9-06b5a625f432.webp?v=1762198817&width=700" alt="Runa" /></div>
+          <div class="ref__row"><span>Runa</span><span class="ref__price">$79</span></div>
+          <span class="ref__meta">Quartz · 5 finishes</span>
+        </a>
+        <a class="ref" href="#" data-watch="tyla" data-gender="women">
+          <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/5_c6ea52f5-d850-407f-94b9-eee587b4402c.webp?v=1762198826&width=700" alt="Tyla" /></div>
+          <div class="ref__row"><span>Tyla</span><span class="ref__price">$79</span></div>
+          <span class="ref__meta">Quartz · 5 finishes</span>
+        </a>
+        <a class="ref" href="#" data-watch="kera" data-gender="women">
+          <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/5_5fc036f3-3d5b-49de-acbf-2b98a1f9df81.webp?v=1762198822&width=700" alt="Kera" /></div>
+          <div class="ref__row"><span>Kera</span><span class="ref__price">$79</span></div>
+          <span class="ref__meta">Quartz · 5 finishes</span>
+        </a>
+        <a class="ref" href="#" data-watch="gracie" data-gender="women">
+          <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/5_83909173-b65d-4565-a007-86fd7c93eccc.webp?v=1762198822&width=700" alt="Gracie" /></div>
+          <div class="ref__row"><span>Gracie</span><span class="ref__price">$79</span></div>
+          <span class="ref__meta">Dress · 5 finishes</span>
+        </a>
+        <a class="ref" href="#" data-watch="nyx" data-gender="women">
+          <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/5_a542ad28-c3f7-4943-852f-cc89e2c78993.webp?v=1762198819&width=700" alt="Nyx" /></div>
+          <div class="ref__row"><span>Nyx</span><span class="ref__price">$79</span></div>
+          <span class="ref__meta">Quartz · 5 finishes</span>
+        </a>
+        <a class="ref" href="#" data-watch="mila" data-gender="women">
+          <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/5_6df6f3e6-2fe4-4a56-9d6c-9391535bbf81.webp?v=1762198819&width=700" alt="Mila" /></div>
+          <div class="ref__row"><span>Mila</span><span class="ref__price">$69</span></div>
+          <span class="ref__meta">Quartz · 5 finishes</span>
+        </a>
+        <a class="ref" href="#" data-watch="phila" data-gender="women">
+          <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/5_d03f134c-8664-47b3-9120-38a19c79e65e.webp?v=1762198825&width=700" alt="Phila" /></div>
+          <div class="ref__row"><span>Phila</span><span class="ref__price">$89</span></div>
+          <span class="ref__meta">Dress · 6 finishes</span>
+        </a>
+        <a class="ref" href="#" data-watch="milo" data-gender="women">
+          <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/5_35cb47b1-da13-43bc-8ec7-e9f800c4ef5b.webp?v=1762198824&width=700" alt="Milo" /></div>
+          <div class="ref__row"><span>Milo</span><span class="ref__price">$79</span></div>
+          <span class="ref__meta">Quartz · 5 finishes</span>
+        </a>
+        <a class="ref" href="#" data-watch="loressa" data-gender="women">
+          <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/5_83ab6e10-3bc4-4d78-a660-da68f8eb7b6e.webp?v=1762198821&width=700" alt="Loressa" /></div>
+          <div class="ref__row"><span>Loressa</span><span class="ref__price">$89</span></div>
+          <span class="ref__meta">Dress · 5 finishes</span>
+        </a>
+        <a class="ref" href="#" data-watch="humir" data-gender="women">
+          <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/5_5063d5aa-86d4-4b0c-a56d-42b45d743504.webp?v=1762198825&width=700" alt="Humir" /></div>
+          <div class="ref__row"><span>Humir</span><span class="ref__price">$79</span></div>
+          <span class="ref__meta">Quartz · 5 finishes</span>
         </a>
       </div>
 
       <div class="all__more">
         <a href="#" class="link-arrow">
-          <span>Browse all twenty-four references</span>
+          <span>Browse the full thirty-nine references</span>
           <span class="link-arrow__sep" aria-hidden="true"></span>
         </a>
       </div>
@@ -550,6 +657,382 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- ─────────── WATCH DETAIL MODAL ─────────── -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal__backdrop" data-close></div>
+    <article class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal__close" data-close aria-label="Close">
+        <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="m4 4 12 12M16 4 4 16"/></svg>
+      </button>
+
+      <figure class="modal__media">
+        <img id="modal-img" src="" alt="" />
+        <figcaption class="modal__plate">
+          <span class="modal__plate-no" id="modal-plate-no">N° I</span>
+          <span id="modal-plate-ref">04.CSP.OBSDN</span>
+        </figcaption>
+      </figure>
+
+      <div class="modal__body">
+        <span class="modal__no" id="modal-no">N° I</span>
+        <h2 class="modal__name" id="modal-title">CASPIAN</h2>
+        <p class="modal__epi" id="modal-epi"></p>
+        <p class="modal__desc" id="modal-desc"></p>
+
+        <div class="modal__finishes">
+          <span class="overline" id="modal-finishes-lbl">Choose finish · 6 colourways</span>
+          <div class="modal__swatches" id="modal-swatches"></div>
+        </div>
+
+        <dl class="modal__specs" id="modal-specs"></dl>
+
+        <div class="modal__foot">
+          <div class="modal__price-block">
+            <span class="modal__price-lbl">From</span>
+            <span class="modal__price" id="modal-price">$79</span>
+            <span class="modal__price-cur">USD</span>
+          </div>
+          <div class="modal__actions">
+            <button class="btn-add" id="modal-add"><span>Add to bag</span></button>
+            <button class="btn-fav" id="modal-fav" aria-label="Add to wishlist">
+              <svg viewBox="0 0 22 22" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M11 19s-7-4.5-7-10a4 4 0 0 1 7-2.7A4 4 0 0 1 18 9c0 5.5-7 10-7 10z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- ─────────── CART DRAWER ─────────── -->
+  <aside class="cart" id="cart" aria-hidden="true" aria-label="Shopping bag">
+    <div class="cart__backdrop" data-cart-close></div>
+    <div class="cart__panel" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+      <header class="cart__head">
+        <div>
+          <span class="overline">Your Bag</span>
+          <h2 id="cart-title" class="cart__title"><span id="cart-count">0</span> items</h2>
+        </div>
+        <button class="cart__close" data-cart-close aria-label="Close bag">
+          <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="m4 4 12 12M16 4 4 16"/></svg>
+        </button>
+      </header>
+
+      <div class="cart__body" id="cart-body">
+        <div class="cart__empty">
+          <span class="cart__empty-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 7h14l-1.5 13H6.5L5 7z"/><path d="M9 7V5a3 3 0 1 1 6 0v2"/></svg>
+          </span>
+          <p class="cart__empty-msg">Your bag is empty.</p>
+          <p class="cart__empty-sub">Discover the catalogue — twenty-four references await.</p>
+          <a href="#bestsellers" class="link-arrow link-arrow--red" data-cart-close>
+            <span>Browse the catalogue</span><span class="link-arrow__sep" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+
+      <footer class="cart__foot" id="cart-foot" style="display:none;">
+        <div class="cart__totals" id="cart-totals"></div>
+        <button class="cart__cta" id="cart-checkout">
+          <span>Proceed to checkout</span>
+          <span class="cta-arrow" aria-hidden="true">→</span>
+        </button>
+        <p class="cart__note">Complimentary shipping · 12-month warranty · 30-day at-home trial</p>
+      </footer>
+    </div>
+  </aside>
+
+  <!-- ─────────── CHECKOUT ─────────── -->
+  <section class="checkout" id="checkout" aria-hidden="true" aria-label="Checkout">
+    <header class="checkout__head">
+      <a href="#" class="checkout__brand" data-checkout-close>
+        <span class="checkout__mark">L<span>·</span>F</span>
+        <span class="checkout__word">LUCKY FOURS</span>
+      </a>
+      <button class="checkout__back" data-checkout-close aria-label="Return to shop">
+        <svg viewBox="0 0 20 20" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 5l-5 5 5 5"/></svg>
+        <span>Continue browsing</span>
+      </button>
+    </header>
+
+    <div class="checkout__inner">
+      <form class="checkout__form" id="checkout-form" novalidate>
+        <h2 class="checkout__title">Complete <em>your order.</em></h2>
+
+        <fieldset class="check-step">
+          <legend><span class="step-no">01</span> Contact</legend>
+          <div class="field">
+            <label for="cf-email">Email address</label>
+            <input type="email" id="cf-email" name="email" required autocomplete="email" placeholder="your.email@somewhere" />
+          </div>
+          <div class="field field--check">
+            <input type="checkbox" id="cf-mailing" checked />
+            <label for="cf-mailing">Send me the Maison letter — one email a month.</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="check-step">
+          <legend><span class="step-no">02</span> Shipping</legend>
+          <div class="field-row">
+            <div class="field">
+              <label for="cf-first">First name</label>
+              <input type="text" id="cf-first" name="first" required autocomplete="given-name" />
+            </div>
+            <div class="field">
+              <label for="cf-last">Last name</label>
+              <input type="text" id="cf-last" name="last" required autocomplete="family-name" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="cf-addr">Street address</label>
+            <input type="text" id="cf-addr" name="address" required autocomplete="street-address" placeholder="Apartment, suite, building" />
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="cf-city">City</label>
+              <input type="text" id="cf-city" name="city" required autocomplete="address-level2" />
+            </div>
+            <div class="field">
+              <label for="cf-postal">Postal code</label>
+              <input type="text" id="cf-postal" name="postal" required autocomplete="postal-code" />
+            </div>
+            <div class="field">
+              <label for="cf-country">Country</label>
+              <select id="cf-country" name="country" autocomplete="country">
+                <option>United States</option>
+                <option>Canada</option>
+                <option>United Kingdom</option>
+                <option>Japan</option>
+                <option>France</option>
+                <option>Germany</option>
+                <option>Switzerland</option>
+                <option>Australia</option>
+                <option>Other (request post)</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="check-step">
+          <legend><span class="step-no">03</span> Payment</legend>
+          <p class="payment-note">
+            <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="7" width="10" height="7" rx="1"/><path d="M5 7V5a3 3 0 1 1 6 0v2"/></svg>
+            <span>Secured via TLS · Demonstration only — no card will be charged.</span>
+          </p>
+          <div class="field">
+            <label for="cf-card">Card number</label>
+            <input type="text" id="cf-card" name="card" required placeholder="0000 0000 0000 0000" inputmode="numeric" autocomplete="cc-number" maxlength="19" />
+          </div>
+          <div class="field">
+            <label for="cf-cardname">Name on card</label>
+            <input type="text" id="cf-cardname" name="cardname" required autocomplete="cc-name" />
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="cf-exp">Expiry</label>
+              <input type="text" id="cf-exp" name="exp" required placeholder="MM / YY" inputmode="numeric" autocomplete="cc-exp" maxlength="7" />
+            </div>
+            <div class="field">
+              <label for="cf-cvc">CVC</label>
+              <input type="text" id="cf-cvc" name="cvc" required placeholder="•••" inputmode="numeric" autocomplete="cc-csc" maxlength="4" />
+            </div>
+          </div>
+        </fieldset>
+
+        <button type="submit" class="check-submit" id="check-submit">
+          <span id="check-submit-text">Place order — <span id="check-total">$0</span></span>
+        </button>
+        <p class="check-fine">By placing this order, you agree to the Maison's <a href="#" style="text-decoration:underline;text-decoration-color:var(--rule);">Terms of Sale</a>.</p>
+      </form>
+
+      <aside class="checkout__summary">
+        <span class="overline">Order Summary</span>
+        <h3 class="checkout__sumtitle">Your <em>references.</em></h3>
+        <div class="check-items" id="check-items"></div>
+        <div class="check-totals" id="check-totals"></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ─────────── SUCCESS ─────────── -->
+  <section class="success" id="success" aria-hidden="true" aria-label="Order confirmed">
+    <div class="success__inner">
+      <span class="success__check">
+        <svg viewBox="0 0 30 30" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.2"><path d="m8 15 5 5 9-12"/></svg>
+      </span>
+      <span class="overline">Order confirmed</span>
+      <h2 class="success__h">Thank you, <em id="success-name">friend</em>.</h2>
+      <p class="success__lede">
+        Your order is being prepared at the workshop. You'll receive a tracking
+        number when it leaves us — typically within forty-eight hours.
+      </p>
+      <dl class="success__details">
+        <div><dt>Order number</dt><dd id="success-no">LF-2026-00000</dd></div>
+        <div><dt>Email confirmation</dt><dd id="success-email">—</dd></div>
+        <div><dt>Expected delivery</dt><dd id="success-delivery">—</dd></div>
+        <div><dt>Order total</dt><dd id="success-total">—</dd></div>
+      </dl>
+      <a href="#" class="link-arrow success__cta" data-success-close>
+        <span>Continue browsing the catalogue</span><span class="link-arrow__sep" aria-hidden="true"></span>
+      </a>
+    </div>
+    <figure class="success__signet">
+      <span class="success__seal">L<span style="color:var(--maison)">·</span>F</span>
+      <span class="success__signature">Maison Lucky Fours · MMXXVI</span>
+    </figure>
+  </section>
+
+  <!-- ─────────── TOAST ─────────── -->
+  <div class="toast" id="toast" aria-live="polite" aria-atomic="true">
+    <span class="toast__check">
+      <svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 8 3 3 5-6"/></svg>
+    </span>
+    <span class="toast__msg">Added to bag</span>
+  </div>
+
+  <!-- ─────────── SEARCH OVERLAY ─────────── -->
+  <div class="search" id="search" aria-hidden="true">
+    <div class="search__backdrop" data-search-close></div>
+    <div class="search__panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+      <header class="search__head">
+        <span class="overline" id="search-title">Search the Catalogue</span>
+        <button class="cart__close" data-search-close aria-label="Close search">
+          <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="m4 4 12 12M16 4 4 16"/></svg>
+        </button>
+      </header>
+      <div class="search__input-wrap">
+        <svg class="search__icon" viewBox="0 0 22 22" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="10" cy="10" r="6.5"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="search-input" placeholder="Search references, materials, or movement…" autocomplete="off" />
+        <button class="search__clear" id="search-clear" aria-label="Clear" style="display:none;">×</button>
+      </div>
+      <div class="search__results" id="search-results">
+        <p class="search__hint">Twenty-four references across four collections.<br/>Try <em>Caspian</em>, <em>tourbillon</em>, <em>obsidian</em>, or <em>chronograph</em>.</p>
+      </div>
+      <div class="search__tags" id="search-tags">
+        <span class="search__tag-lbl">Popular</span>
+        <button class="s-tag" data-q="Caspian">Caspian</button>
+        <button class="s-tag" data-q="Mechanical">Mechanical</button>
+        <button class="s-tag" data-q="Dive">Dive</button>
+        <button class="s-tag" data-q="Chronograph">Chronograph</button>
+        <button class="s-tag" data-q="Spine">Spine</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────── WISHLIST DRAWER ─────────── -->
+  <aside class="wishlist" id="wishlist" aria-hidden="true">
+    <div class="cart__backdrop" data-wishlist-close></div>
+    <div class="cart__panel" role="dialog" aria-modal="true" aria-labelledby="wish-title">
+      <header class="cart__head">
+        <div>
+          <span class="overline">Your Wishlist</span>
+          <h2 id="wish-title" class="cart__title"><span id="wish-count-num">0</span> saved</h2>
+        </div>
+        <button class="cart__close" data-wishlist-close aria-label="Close wishlist">
+          <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="m4 4 12 12M16 4 4 16"/></svg>
+        </button>
+      </header>
+      <div class="cart__body" id="wishlist-body">
+        <div class="cart__empty">
+          <span class="cart__empty-icon">
+            <svg viewBox="0 0 22 22" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M11 19s-7-4.5-7-10a4 4 0 0 1 7-2.7A4 4 0 0 1 18 9c0 5.5-7 10-7 10z"/></svg>
+          </span>
+          <p class="cart__empty-msg">No favourites yet.</p>
+          <p class="cart__empty-sub">Tap the heart on any reference to save it for later.</p>
+          <a href="#bestsellers" class="link-arrow link-arrow--red" data-wishlist-close>
+            <span>Browse the catalogue</span><span class="link-arrow__sep" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ─────────── ACCOUNT MODAL ─────────── -->
+  <div class="acct" id="account" aria-hidden="true">
+    <div class="acct__backdrop" data-account-close></div>
+    <div class="acct__panel" role="dialog" aria-modal="true" aria-labelledby="acct-title">
+      <button class="modal__close" data-account-close aria-label="Close">
+        <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="m4 4 12 12M16 4 4 16"/></svg>
+      </button>
+
+      <span class="overline" style="padding-left:0;">The Maison</span>
+      <h2 class="acct__title" id="acct-title">Welcome <em>back.</em></h2>
+      <p class="acct__lede">Sign in to view your orders, manage your wishlist, and receive the Maison letter.</p>
+
+      <div class="acct__tabs" role="tablist">
+        <button class="acct__tab is-on" role="tab" data-tab="signin">Sign in</button>
+        <button class="acct__tab" role="tab" data-tab="register">Create account</button>
+      </div>
+
+      <form class="acct__form" id="acct-signin" data-form="signin">
+        <div class="field">
+          <label for="ai-email">Email</label>
+          <input type="email" id="ai-email" required autocomplete="email" />
+        </div>
+        <div class="field">
+          <label for="ai-pass">Password</label>
+          <input type="password" id="ai-pass" required autocomplete="current-password" />
+        </div>
+        <button type="submit" class="check-submit"><span>Sign in</span></button>
+        <a href="#" class="acct__forgot">Forgot your password?</a>
+      </form>
+
+      <form class="acct__form" id="acct-register" data-form="register" hidden>
+        <div class="field-row">
+          <div class="field">
+            <label for="ar-first">First name</label>
+            <input type="text" id="ar-first" required autocomplete="given-name" />
+          </div>
+          <div class="field">
+            <label for="ar-last">Last name</label>
+            <input type="text" id="ar-last" required autocomplete="family-name" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="ar-email">Email</label>
+          <input type="email" id="ar-email" required autocomplete="email" />
+        </div>
+        <div class="field">
+          <label for="ar-pass">Password</label>
+          <input type="password" id="ar-pass" required autocomplete="new-password" />
+        </div>
+        <button type="submit" class="check-submit"><span>Create account</span></button>
+      </form>
+
+      <p class="acct__guest">
+        <a href="#" data-account-close>Continue as a guest →</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- ─────────── GIFTS MODAL ─────────── -->
+  <div class="gifts" id="gifts" aria-hidden="true">
+    <div class="acct__backdrop" data-gifts-close></div>
+    <div class="gifts__panel" role="dialog" aria-modal="true" aria-labelledby="gifts-title">
+      <button class="modal__close" data-gifts-close aria-label="Close">
+        <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="m4 4 12 12M16 4 4 16"/></svg>
+      </button>
+
+      <header class="gifts__head">
+        <span class="overline" style="padding-left:0;">Gifting · Mother's Day</span>
+        <h2 class="gifts__title">A second piece, <em>with our compliments.</em></h2>
+        <p class="gifts__lede">Through the 14th of May, every order arrives with a complimentary second reference — chosen at checkout, from anywhere in the catalogue. Below, a few suggestions by price.</p>
+      </header>
+
+      <div class="gifts__tabs">
+        <button class="gifts__tab is-on" data-gift-tab="under-100">Under $100</button>
+        <button class="gifts__tab" data-gift-tab="under-150">$100 — $150</button>
+        <button class="gifts__tab" data-gift-tab="imperial">Imperial</button>
+      </div>
+
+      <div class="gifts__grid" id="gifts-grid"></div>
+
+      <footer class="gifts__foot">
+        <span class="overline" style="padding-left:0;">Concierge</span>
+        <p>Unsure which reference to choose? <a href="#">Book a complimentary fifteen-minute concierge call</a> with a Maison advisor.</p>
+      </footer>
+    </div>
+  </div>
+
+  <script src="script.js?v=5"></script>
 </body>
 </html>
