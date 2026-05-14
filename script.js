@@ -548,6 +548,54 @@ const VARIANTS = {
 
 const varImg = (v, w) => `${VARIANT_BASE}${v.u}&width=${w}`;
 
+/* ──────────────────────────────────────────────────────────────
+   CATALOGUE — display order + optional badge per reference
+   Format: [slug, gender, badge?]
+   ────────────────────────────────────────────────────────────── */
+const CATALOGUE = [
+  // Men's (20)
+  ['caspian',     'men',   'Best Seller'],
+  ['santos',      'men',   '15 Colourways'],
+  ['tourbillon',  'men',   'Mechanical'],
+  ['spine',       'men',   'Imperial'],
+  ['brone',       'men'],
+  ['oceanus',     'men',   '200m Dive'],
+  ['fortuno',     'men'],
+  ['baretta',     'men',   'Chronograph'],
+  ['ronin',       'men'],
+  ['chronometer', 'men'],
+  ['atlas',       'men',   'World-time'],
+  ['prague',      'men'],
+  ['voyager',     'men',   'GMT'],
+  ['aurelios',    'men'],
+  ['wraith',      'men',   'PVD'],
+  ['summit',      'men'],
+  ['jaxon',       'men',   'New'],
+  ['nassau',      'men'],
+  ['princeoak',   'men',   'Mechanical'],
+  ['aura',        'men',   '36 mm'],
+  // Women's (19)
+  ['calista',     'women', 'Pavé'],
+  ['lyra',        'women'],
+  ['venoria',     'women'],
+  ['thea',        'women', 'Pavé'],
+  ['surmen',      'women'],
+  ['maso',        'women'],
+  ['leto',        'women', 'Dress'],
+  ['francesca',   'women'],
+  ['lora',        'women'],
+  ['runa',        'women'],
+  ['tyla',        'women'],
+  ['kera',        'women'],
+  ['gracie',      'women', 'Dress'],
+  ['nyx',         'women'],
+  ['mila',        'women'],
+  ['phila',       'women'],
+  ['milo',        'women'],
+  ['loressa',     'women', 'Heirloom'],
+  ['humir',       'women'],
+];
+
 const WOMEN_SLUGS = ['caspian','brone','fortuno','ronin','atlas','prague','aurelios'];
 
 (() => {
@@ -1086,6 +1134,21 @@ const WOMEN_SLUGS = ['caspian','brone','fortuno','ronin','atlas','prague','aurel
 
   // ── GLOBAL CLICK DELEGATION ──────────────────────────────
   document.addEventListener('click', (e) => {
+    // ── quick-add (must run BEFORE [data-watch] check) ──
+    const quickAdd = e.target.closest('[data-quick-add]');
+    if (quickAdd) {
+      e.preventDefault();
+      const slug = quickAdd.dataset.quickAdd;
+      addItem(slug, 0);
+      quickAdd.classList.add('is-added');
+      quickAdd.querySelector('span').textContent = 'Added ✓';
+      setTimeout(() => {
+        quickAdd.classList.remove('is-added');
+        quickAdd.querySelector('span').textContent = 'Add to Bag';
+      }, 1600);
+      return;
+    }
+
     // close handlers — priority order
     if (e.target.closest('[data-close]'))           { closeModal();    return; }
     if (e.target.closest('[data-cart-close]'))      { closeCart();     return; }
@@ -1269,7 +1332,46 @@ const WOMEN_SLUGS = ['caspian','brone','fortuno','ronin','atlas','prague','aurel
     showToast(`Welcome to the Maison, ${first}`);
   });
 
+  // ── Render catalogue grid ────────────────────────────────
+  function renderCatalogue() {
+    const grid = document.getElementById('all-grid');
+    if (!grid) return;
+    grid.innerHTML = CATALOGUE.map(([slug, gender, badge]) => {
+      const w = WATCHES[slug];
+      if (!w) return '';
+      const variants = VARIANTS[slug] || [{ n: 'Default', u: '' }];
+      const isSingle = variants.length === 1 && variants[0].n === 'Default';
+      const finishesLbl = isSingle
+        ? 'Single finish'
+        : `${variants.length} colourway${variants.length === 1 ? '' : 's'}`;
+      const firstVar = variants[0];
+      const imgUrl = firstVar.u ? varImg(firstVar, 700) : w.img;
+      const badgeMod = badge === 'Imperial' ? ' ref__badge--imperial' : '';
+      const badgeHtml = badge ? `<span class="ref__badge${badgeMod}">${badge}</span>` : '';
+      return `
+        <article class="ref" data-watch="${slug}" data-gender="${gender}">
+          <a href="#" class="ref__media" data-watch="${slug}" aria-label="View ${w.name}">
+            <img src="${imgUrl}" alt="${w.name}" loading="lazy" />
+            ${badgeHtml}
+            <button type="button" class="ref__add" data-quick-add="${slug}" aria-label="Add ${w.name} to bag">
+              <span>Add to Bag</span>
+            </button>
+          </a>
+          <div class="ref__body">
+            <h4 class="ref__name">${w.name}</h4>
+            <span class="ref__meta">${w.type} · ${finishesLbl}</span>
+            <div class="ref__row">
+              <span class="ref__price">From <strong>$${w.price}</strong></span>
+              <span class="ref__discover" data-watch="${slug}">Discover<span class="ref__arrow" aria-hidden="true">→</span></span>
+            </div>
+          </div>
+        </article>
+      `;
+    }).join('');
+  }
+
   // ── Initial setup ────────────────────────────────────────
+  renderCatalogue();
   updateBagCount();
   updateWishCount();
 

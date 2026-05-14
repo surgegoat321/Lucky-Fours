@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Tenor+Sans&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=6" />
+  <link rel="stylesheet" href="style.css?v=8" />
 </head>
 <body>
 
@@ -267,6 +267,8 @@
           <span class="all-title"><em>Twenty</em> references<br />for the keepers of time.</span>
           <span class="women-title"><em>Nineteen</em> for her,<br />carefully chosen.</span>
         </h2>
+        <p class="all__sub all-sub">From dive to dress, automatic to chronograph — every reference is hand-finished in 316L surgical steel, set under sapphire crystal, and regulated before it leaves the workshop.</p>
+        <p class="all__sub women-sub">Smaller cases. Softer dials. Gold, rose-gold and sterling — paired with mesh, leather and polished bracelets — designed to wear quietly on any wrist.</p>
         <span class="filter-pill" id="filter-pill">
           <span class="filter-pill__dot" aria-hidden="true"></span>
           <span>Women's Collection · 19 References</span>
@@ -274,8 +276,15 @@
         </span>
       </header>
 
-      <div class="all__grid">
-        <!-- ─── MEN'S (20) ─── -->
+      <div class="all__grid" id="all-grid">
+        <!-- Cards rendered by JS from CATALOGUE in script.js -->
+        <noscript>
+          <p style="text-align:center;font-family:var(--serif);font-style:italic;color:var(--ink-3);">Please enable JavaScript to browse the catalogue.</p>
+        </noscript>
+      </div>
+
+      <!-- legacy static cards retained below noscript fallback (hidden, will be removed once we trust JS render) -->
+      <div class="all__grid" hidden>
         <a class="ref" href="#" data-watch="brone" data-gender="men">
           <div class="ref__media"><img src="https://luckyfours.com/cdn/shop/files/7_d547bd28-ca75-4352-89f3-6981105a3628.webp?v=1763225151&width=700" alt="Brone" /></div>
           <div class="ref__row"><span>Brone</span><span class="ref__price">$79</span></div>
@@ -1033,6 +1042,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=6"></script>
+  <script src="script.js?v=8"></script>
 </body>
 </html>
